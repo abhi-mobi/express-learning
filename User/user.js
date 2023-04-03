@@ -27,9 +27,14 @@ ExpressRoute.use('/products', (req, res, next) => {
             res.send('Error in Writtting');
           }
           console.log('Flie Update');
+          let sendString = '';
+          products.forEach((data) => {
+            sendString += `<h1>${data.productname}</h1>`;
+          });
+          // res.setHeader('text/html');
+          res.send(sendString);
         }
       );
-      res.send('ok');
     }
   );
 });
